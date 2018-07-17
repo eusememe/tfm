@@ -37,11 +37,26 @@ def to_1400MHz():
 
 
 while(True):
-	#Raspi      R2   R4   R6
-	#work 0:    X    O    X
-	#work 1:    O    O    X
-	#work 2:    O    O    O
-	#work 3:    X    O    O
+	#Raspi      R3   R1   R5    R6   R2   R4
+	#work 0:    X    O    X     X    O    X
+	#work 1:    X    O    X     X    O    O
+	#work 2:    X    O    X     O    O    X
+	#work 3:    X    O    X     O    O    O
+
+	#work 4:    X    O    O     X    O    X
+	#work 5:    X    O    O     X    O    O
+	#work 6:    X    O    O     O    O    X
+	#work 7:    X    O    O     O    O    O
+
+	#work 8:    O    O    X     X    O    X
+	#work 9:    O    O    X     X    O    O
+	#work 10:   O    O    X     O    O    X
+	#work 11:   O    O    X     O    O    O
+
+	#work 12:   O    O    O     X    O    X
+	#work 13:   O    O    O     X    O    O
+	#work 14:   O    O    O     O    O    X
+	#work 15:   O    O    O     O    O    O
 
 	#CPU to 600 MHz
 	to_600MHz()
