@@ -1,31 +1,27 @@
+#!/usr/bin/python
 import os
 import time
 
+def run(cmd):
+        print (cmd)
+	os.system(cmd)
+
 def work_1():
-	os.system('sudo python a.py &')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
 
 def work_2():
-	os.system('sudo python a.py &')
-	os.system('sudo python a.py &')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
 
 def work_4():
-	os.system('sudo python a.py &')
-	os.system('sudo python a.py &')
-	os.system('sudo python a.py &')
-	os.system('sudo python a.py &')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
+	os.system('start-stop-daemon --background --exec /home/pi/tfm/a.py --start')
 
-def kill_work_1():
-	os.system('sudo pkill -n python')
+def kill_work():
+        run('start-stop-daemon --name a.py --stop')
 
-def kill_work_2():
-	os.system('sudo pkill -n python')
-	os.system('sudo pkill -n python')
-
-def kill_work_4():
-	os.system('sudo pkill -n python')
-	os.system('sudo pkill -n python')
-	os.system('sudo pkill -n python')
-	os.system('sudo pkill -n python')
 
 def to_600MHz():
 	os.system('sudo cpufreq-set -r -g userspace')
@@ -64,32 +60,25 @@ while(True):
 	#work 0 - 35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
 
 	#work 1 - 30 min
 	time.sleep(1800)
@@ -106,31 +95,24 @@ while(True):
 	#work 5 - 30 min
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_4()
 	time.sleep(300) 
-	kill_work_4()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60)
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(360)
-		os.system("sudo pkill minerd")
-		time.sleep(90)"""
 
 	#work 6  -  40 min
 	time.sleep(2400)
@@ -138,62 +120,49 @@ while(True):
 	#work 7  -  35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
+
 
 	#work 8 - 35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
 
 	#work 9 - 30 min
 	time.sleep(1800)
@@ -201,32 +170,26 @@ while(True):
 	#work 10  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
+
 
 	#work 11  -  35 min
 	time.sleep(2100)
@@ -237,101 +200,80 @@ while(True):
 	#work 13 - 30 min
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_4()
 	time.sleep(300) 
-	kill_work_4()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(360)
-		os.system("sudo pkill minerd")
-		time.sleep(90)"""
 
 	#work 14  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
 
 	#work 15  -  35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
 
 
 	#Raspi      R3   R1   R5    R6   R2   R4
 	#work 0:    O    O    O     O    O    O
 	#work 1:    X    O    X     X    O    O
 	#work 2:    X    O    X     O    O    X
-	#work 3:    O    O    X     O    O    O
+	#work 3:    O    O    O     X    O    O
 
-	#work 4:    X    O    X     X    O    X
+	#work 4:    O    O    X     O    O    O
 	#work 5:    X    O    O     O    O    X
 	#work 6:    X    O    O     X    O    O
 	#work 7:    X    O    O     X    O    X
@@ -344,7 +286,7 @@ while(True):
 	#work 12:   O    O    O     X    O    X
 	#work 13:   X    O    O     O    O    O
 	#work 14:   O    O    O     O    O    X
-	#work 15:   O    O    O     X    O    O
+	#work 15:   X    O    X     X    O    X
 
 	#CPU to 1.4 GHz 
 	to_1400MHz()
@@ -352,32 +294,25 @@ while(True):
 	#work 0  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
 
 	#work 1  -  30 min
 	time.sleep(1800)
@@ -388,35 +323,47 @@ while(True):
 	#work 3  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
 
 	#work 4  -  40 min
-	time.sleep(2400) 
+	work_1()
+	time.sleep(360) 
+	kill_work()
+	time.sleep(120) 
+	work_2()
+	time.sleep(360) 
+	kill_work()
+	time.sleep(120) 
+	work_4()
+	time.sleep(360) 
+	kill_work()
+	time.sleep(120) 
+	work_2()
+	time.sleep(360) 
+	kill_work()
+	time.sleep(120) 
+	work_1()
+	time.sleep(360) 
+	kill_work()
+	time.sleep(120) 
 
 	#work 5  -  30 min
 	time.sleep(1800)
@@ -430,92 +377,71 @@ while(True):
 	#work 8  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
 
 	#work 9  -  30 min
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_4()
 	time.sleep(300) 
-	kill_work_4()
+	kill_work()
 	time.sleep(60) 
 	work_2()
 	time.sleep(300) 
-	kill_work_2()
+	kill_work()
 	time.sleep(60) 
 	work_1()
 	time.sleep(300) 
-	kill_work_1()
+	kill_work()
 	time.sleep(60)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(360)
-		os.system("sudo pkill minerd")
-		time.sleep(90)"""
 
 	#work 10  -  35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
 
 	#work 11  -  40 min
 	time.sleep(2400)
@@ -523,32 +449,25 @@ while(True):
 	#work 12  -  40 min
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_4()
 	time.sleep(360) 
-	kill_work_4()
+	kill_work()
 	time.sleep(120) 
 	work_2()
 	time.sleep(360) 
-	kill_work_2()
+	kill_work()
 	time.sleep(120) 
 	work_1()
 	time.sleep(360) 
-	kill_work_1()
+	kill_work()
 	time.sleep(120) 
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
 
 	#work 13  -  30 min
 	time.sleep(1800)
@@ -556,62 +475,30 @@ while(True):
 	#work 14  -  35 min
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_4()
 	time.sleep(330) 
-	kill_work_4()
+	kill_work()
 	time.sleep(90) 
 	work_2()
 	time.sleep(330) 
-	kill_work_2()
+	kill_work()
 	time.sleep(90) 
 	work_1()
 	time.sleep(330) 
-	kill_work_1()
+	kill_work()
 	time.sleep(90)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(420)
-		os.system("sudo pkill minerd")
-		time.sleep(105)"""
 
 	#work 15  -  40 min
-	work_1()
-	time.sleep(360) 
-	kill_work_1()
-	time.sleep(120) 
-	work_2()
-	time.sleep(360) 
-	kill_work_2()
-	time.sleep(120) 
-	work_4()
-	time.sleep(360) 
-	kill_work_4()
-	time.sleep(120) 
-	work_2()
-	time.sleep(360) 
-	kill_work_2()
-	time.sleep(120) 
-	work_1()
-	time.sleep(360) 
-	kill_work_1()
-	time.sleep(120)
 
-		"""#carga criptomonedas
-	for threads in range (1,5):
-		minerd = "sudo ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45700 -u e.mediavillam@alumnos.upm.es -p X -t " + str(threads) + " -B"
-		os.system(minerd)
-		time.sleep(480)
-		os.system("sudo pkill minerd")
-		time.sleep(120)"""
+	time.sleep(2400) 
+
 
 
 

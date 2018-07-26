@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+
 from pandas import read_csv
 from datetime import datetime
 from math import sqrt
@@ -12,10 +15,12 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 
+DIR="/home/pi/tfm/"
+
 # load data
 def parse(x):
 	return datetime.strptime(x, '%Y %m %d %H')
-dataset = read_csv('data.csv',  parse_dates = [['year', 'month', 'day', 'hour']], index_col=0, date_parser=parse)
+dataset = read_csv(DIR+'data.csv',  parse_dates = [['year', 'month', 'day', 'hour']], index_col=0, date_parser=parse)
 dataset.drop('No', axis=1, inplace=True)
 # manually specify column names
 dataset.columns = ['pollution', 'dew', 'temp', 'press', 'wnd_dir', 'wnd_spd', 'snow', 'rain']
@@ -27,7 +32,7 @@ dataset = dataset[24:]
 # summarize first 5 rows
 print(dataset.head(5))
 # save to file
-dataset.to_csv('pollution.csv')
+#dataset.to_csv('pollution.csv')
 
 # convert series to supervised learning
 def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
@@ -54,7 +59,7 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 	return agg
  
 # load dataset
-dataset = read_csv('pollution.csv', header=0, index_col=0)
+dataset = read_csv(DIR+'pollution.csv', header=0, index_col=0)
 values = dataset.values
 # integer encode direction
 encoder = LabelEncoder()
@@ -69,7 +74,7 @@ reframed = series_to_supervised(scaled, 1, 1)
 # drop columns we don't want to predict
 reframed.drop(reframed.columns[[9,10,11,12,13,14,15]], axis=1, inplace=True)
 print(reframed.head())
- 
+
 # split into train and test sets
 values = reframed.values
 n_train_hours = 365 * 24
@@ -91,6 +96,7 @@ model.compile(loss='mae', optimizer='adam')
 # fit network
 history = model.fit(train_X, train_y, epochs=50, batch_size=72, validation_data=(test_X, test_y), verbose=2, shuffle=False)
  
+
 # make a prediction
 yhat = model.predict(test_X)
 test_X = test_X.reshape((test_X.shape[0], test_X.shape[2]))

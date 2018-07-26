@@ -1,0 +1,26 @@
+#!/usr/bin/python
+
+import os, sys
+
+workload = [
+        ("10.40.38.101", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r1_U.py ; )"),
+        ("10.40.38.102", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r2_U.py ; )"),
+        ("10.40.38.103", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r3_U.py ; )"),
+        ("10.40.38.104", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r4_U.py ; )"),
+        ("10.40.38.105", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r5_U.py ; )"),
+        ("10.40.38.106", "( killall python ; killall minerd ; )", "( cd /home/pi/tfm && python r6_U.py ; )"),
+]
+
+cmd = "start"
+if (len(sys.argv) > 1):
+    cmd = sys.argv[1]
+
+os.system ("tmux new-session -d")
+if (cmd == "start"):
+    for pi in workload:
+        print("ssh root@%s \"%s\"" % (pi[0], pi[2]))
+        os.system("tmux new-window -d ssh root@%s \"%s\"" % (pi[0], pi[2]))
+elif (cmd == "stop"):
+    for pi in workload:
+        print("ssh root@%s \"%s\"" % (pi[0], pi[1]))
+        os.system("tmux new-window -d ssh root@%s \"%s\"" % (pi[0], pi[1]))
